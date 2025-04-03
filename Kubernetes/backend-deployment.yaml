@@ -1,1 +1,21 @@
 apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: backend
+spec:
+  replicas: 2
+  selector: 
+    matchLables:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backtend
+          image: onfinance/backend:latest
+          ports:
+            - containerPort: 8080
+    
+  
